@@ -1,6 +1,36 @@
 # t_ages
 Ages for Trevor
 
+To run on the cluster:
+
+```
+ssh fi
+<password>
+<code>   
+
+ssh rusty
+
+cd to directory.
+
+```
+
+parallel.sh file:
+
+```python
+#!/bin/sh
+
+export PATH="$HOME/miniconda/bin:$PATH"
+python simple_parallel.py
+```
+
+```
+module load slurm
+
+sbatch parallel.sh
+
+tail -f slurm-xxxxxx.out
+```
+
 
 Notebooks
 ==========
