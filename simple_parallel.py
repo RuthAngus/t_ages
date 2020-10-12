@@ -48,6 +48,7 @@ def infer_stellar_age(df):
     EEP_init = track["eep"]
     inits = [EEP_init, df["f18_logAiso"], df["p20_cks_smet"],
             1./(df["gaia_parallax"]*1e-3), init_av]
+    print("inits = ", inits)
 
     # Set up the parameter dictionary.
     iso_params = {"G": (df["gaia_phot_g_mean_mag"], .01),
@@ -55,6 +56,7 @@ def infer_stellar_age(df):
                   "feh": (df["p20_cks_smet"], feh_err),
                   "parallax": (df["gaia_parallax"],
                                df["gaia_parallax_error"])}
+    print("iso_params = ", iso_params)
 
     # define filenames for saving samples and remove existing files.
     fn = "samples/gyro_{}".format(str(int(df["dr25_kepid"])).zfill(9))
@@ -126,8 +128,8 @@ if __name__ == "__main__":
         list_of_dicts.append(df.iloc[i].to_dict())
 
     # print(list_of_dicts[0])
-    print(len(list_of_dicts[:3]))
+    # print(len(list_of_dicts[:3]))
 
-    # infer_stellar_age(list_of_dicts[0])
-    p = Pool(24)
-    list(p.map(infer_stellar_age, list_of_dicts))
+    infer_stellar_age(list_of_dicts[0])
+    # p = Pool(24)
+    # list(p.map(infer_stellar_age, list_of_dicts))

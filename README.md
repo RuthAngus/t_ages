@@ -12,6 +12,11 @@ ssh rusty
 
 cd to directory.
 
+module load slurm
+
+sbatch parallel.sh
+
+tail -f slurm-xxxxxx.out
 ```
 
 parallel.sh file:
@@ -21,14 +26,6 @@ parallel.sh file:
 
 export PATH="$HOME/miniconda/bin:$PATH"
 python simple_parallel.py
-```
-
-```
-module load slurm
-
-sbatch parallel.sh
-
-tail -f slurm-xxxxxx.out
 ```
 
 
