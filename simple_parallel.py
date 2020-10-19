@@ -14,8 +14,6 @@ import stardate as sd
 import stardate2 as sd2
 from stardate import load_samples, read_samples
 from isochrones import get_ichrone
-mist = get_ichrone('mist')
-tracks = get_ichrone('mist', tracks=True)
 
 from multiprocessing import Pool
 
@@ -24,6 +22,7 @@ from multiprocessing import Pool
 sys.path.append(os.getcwd())
 
 def infer_stellar_age(df):
+   print("Hogwarts")
 
    # CALCULATE SOME USEFUL VARIABLES
    teff_err = .5*(df["p20_cks_steff_err1"] - df["p20_cks_steff_err2"])
@@ -33,6 +32,8 @@ def infer_stellar_age(df):
    av = df["l20_Av"]
    bprp = df["gaia_phot_bp_mean_mag"] - df["gaia_phot_rp_mean_mag"]
 
+   print("Hagrid")
+
    # Now make sure you don't initialize at Av = 0.
    init_av = av*1
    init_av_err = av*1
@@ -41,15 +42,19 @@ def infer_stellar_age(df):
    if av_err == 0:
        init_av_err = .1
 
+   print("got here")
+
    # CALCULATE INITS
    mass, age, feh = (df["f18_Miso"], df["f18_logAiso"], df["p20_cks_smet"])
    # "accurate=True" makes more accurate, but slower
+
+   tracks = get_ichrone('mist', tracks=True)
    track = tracks.generate(mass, age, feh, return_dict=True)
-   EEP_init = track["eep"]
-   inits = [EEP_init, df["f18_logAiso"], df["p20_cks_smet"],
-           1./(df["gaia_parallax"]*1e-3), init_av]
-   print("inits = ", inits)
    print("stop")
+   # EEP_init = track["eep"]
+   # inits = [EEP_init, df["f18_logAiso"], df["p20_cks_smet"],
+   #         1./(df["gaia_parallax"]*1e-3), init_av]
+   # print("inits = ", inits)
 
 #    # Set up the parameter dictionary.
 #    iso_params = {"G": (df["gaia_phot_g_mean_mag"], .01),
@@ -121,7 +126,9 @@ def infer_stellar_age(df):
 
 ##----------------------------------------------------------------------------
 
+print("expelliarmus")
 if __name__ == "__main__":
+    print("Dumbledore")
 
     #  Load the data file.
     df = pd.read_csv("data/for_ruth_masses.csv")
@@ -133,6 +140,7 @@ if __name__ == "__main__":
     print(list_of_dicts[0])
     print(len(list_of_dicts))
 
+    print("pixie dust")
     infer_stellar_age(list_of_dicts[0])
 #    # p = Pool(24)
 #    # list(p.map(infer_stellar_age, list_of_dicts))
