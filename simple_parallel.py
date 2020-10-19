@@ -24,6 +24,7 @@ from multiprocessing import Pool
 sys.path.append(os.getcwd())
 
 def infer_stellar_age(df):
+    print("testing 2")
 
     # CALCULATE SOME USEFUL VARIABLES
     teff_err = .5*(df["p20_cks_steff_err1"] - df["p20_cks_steff_err2"])
@@ -120,6 +121,8 @@ def infer_stellar_age(df):
 
 #----------------------------------------------------------------------------
 if __name__ == "__main__":
+    print("testing 1")
+
     #  Load the data file.
     df = pd.read_csv("data/for_ruth_masses.csv")
 

@@ -17,6 +17,8 @@ module load slurm
 sbatch parallel.sh
 
 tail -f slurm-xxxxxx.out
+
+squeue -u rangus
 ```
 
 parallel.sh file:
