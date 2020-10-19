@@ -19,8 +19,6 @@ tracks = get_ichrone('mist', tracks=True)
 
 from multiprocessing import Pool
 
-print("TEST2")
-
 # Necessary to add cwd to path when script run
 # by SLURM (since it executes a copy)
 sys.path.append(os.getcwd())
@@ -122,8 +120,11 @@ sys.path.append(os.getcwd())
 
 
 ##----------------------------------------------------------------------------
-#if __name__ == "__main__":
-#    print("testing 1")
+
+print("TEST3")
+
+if __name__ == "__main__":
+    print("testing 1")
 
 #    #  Load the data file.
 #    df = pd.read_csv("data/for_ruth_masses.csv")
