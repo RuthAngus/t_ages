@@ -19,7 +19,7 @@ tracks = get_ichrone('mist', tracks=True)
 
 from multiprocessing import Pool
 
-print("TEST")
+print("TEST2")
 
 # Necessary to add cwd to path when script run
 # by SLURM (since it executes a copy)
