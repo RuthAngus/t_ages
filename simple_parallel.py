@@ -124,16 +124,16 @@ def infer_stellar_age(df):
 if __name__ == "__main__":
     print("testing 1")
 
-   #  Load the data file.
-   df = pd.read_csv("data/for_ruth_masses.csv")
+    #  Load the data file.
+    df = pd.read_csv("data/for_ruth_masses.csv")
 
-   list_of_dicts = []
-   for i in range(len(df)):
-       list_of_dicts.append(df.iloc[i].to_dict())
+    list_of_dicts = []
+    for i in range(len(df)):
+        list_of_dicts.append(df.iloc[i].to_dict())
 
-   print(list_of_dicts[0])
-   print(len(list_of_dicts))
+    print(list_of_dicts[0])
+    print(len(list_of_dicts))
 
-   infer_stellar_age(list_of_dicts[0])
+    infer_stellar_age(list_of_dicts[0])
 #    # p = Pool(24)
 #    # list(p.map(infer_stellar_age, list_of_dicts))
