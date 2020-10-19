@@ -23,8 +23,8 @@ from multiprocessing import Pool
 # by SLURM (since it executes a copy)
 sys.path.append(os.getcwd())
 
-#def infer_stellar_age(df):
-#    print("testing 2")
+def infer_stellar_age(df):
+    print("testing 2")
 
 #    # CALCULATE SOME USEFUL VARIABLES
 #    teff_err = .5*(df["p20_cks_steff_err1"] - df["p20_cks_steff_err2"])
@@ -121,21 +121,19 @@ sys.path.append(os.getcwd())
 
 ##----------------------------------------------------------------------------
 
-print("TEST3")
-
 if __name__ == "__main__":
     print("testing 1")
 
-#    #  Load the data file.
-#    df = pd.read_csv("data/for_ruth_masses.csv")
+   #  Load the data file.
+   df = pd.read_csv("data/for_ruth_masses.csv")
 
-#    list_of_dicts = []
-#    for i in range(len(df)):
-#        list_of_dicts.append(df.iloc[i].to_dict())
+   list_of_dicts = []
+   for i in range(len(df)):
+       list_of_dicts.append(df.iloc[i].to_dict())
 
-#    # print(list_of_dicts[0])
-#    # print(len(list_of_dicts[:3]))
+   print(list_of_dicts[0])
+   print(len(list_of_dicts))
 
-#    infer_stellar_age(list_of_dicts[0])
+   infer_stellar_age(list_of_dicts[0])
 #    # p = Pool(24)
 #    # list(p.map(infer_stellar_age, list_of_dicts))
