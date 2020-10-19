@@ -24,32 +24,32 @@ from multiprocessing import Pool
 sys.path.append(os.getcwd())
 
 def infer_stellar_age(df):
-    print("testing 2")
 
-#    # CALCULATE SOME USEFUL VARIABLES
-#    teff_err = .5*(df["p20_cks_steff_err1"] - df["p20_cks_steff_err2"])
-#    feh_err = .5*(df["p20_cks_smet_err1"] - df["p20_cks_smet_err2"])
-#    prot_err = .5*(df["prot_err1"] - df["prot_err2"])
-#    av_err = .5*(df["l20_Av_errp"] + df["l20_Av_errm"])
-#    av = df["l20_Av"]
-#    bprp = df["gaia_phot_bp_mean_mag"] - df["gaia_phot_rp_mean_mag"]
+   # CALCULATE SOME USEFUL VARIABLES
+   teff_err = .5*(df["p20_cks_steff_err1"] - df["p20_cks_steff_err2"])
+   feh_err = .5*(df["p20_cks_smet_err1"] - df["p20_cks_smet_err2"])
+   prot_err = .5*(df["prot_err1"] - df["prot_err2"])
+   av_err = .5*(df["l20_Av_errp"] + df["l20_Av_errm"])
+   av = df["l20_Av"]
+   bprp = df["gaia_phot_bp_mean_mag"] - df["gaia_phot_rp_mean_mag"]
 
-#    # Now make sure you don't initialize at Av = 0.
-#    init_av = av*1
-#    init_av_err = av*1
-#    if av == 0:
-#        init_av = .1
-#    if av_err == 0:
-#        init_av_err = .1
+   # Now make sure you don't initialize at Av = 0.
+   init_av = av*1
+   init_av_err = av*1
+   if av == 0:
+       init_av = .1
+   if av_err == 0:
+       init_av_err = .1
 
-#    # CALCULATE INITS
-#    mass, age, feh = (df["f18_Miso"], df["f18_logAiso"], df["p20_cks_smet"])
-#    # "accurate=True" makes more accurate, but slower
-#    track = tracks.generate(mass, age, feh, return_dict=True)
-#    EEP_init = track["eep"]
-#    inits = [EEP_init, df["f18_logAiso"], df["p20_cks_smet"],
-#            1./(df["gaia_parallax"]*1e-3), init_av]
-#    print("inits = ", inits)
+   # CALCULATE INITS
+   mass, age, feh = (df["f18_Miso"], df["f18_logAiso"], df["p20_cks_smet"])
+   # "accurate=True" makes more accurate, but slower
+   track = tracks.generate(mass, age, feh, return_dict=True)
+   EEP_init = track["eep"]
+   inits = [EEP_init, df["f18_logAiso"], df["p20_cks_smet"],
+           1./(df["gaia_parallax"]*1e-3), init_av]
+   print("inits = ", inits)
+   print("stop")
 
 #    # Set up the parameter dictionary.
 #    iso_params = {"G": (df["gaia_phot_g_mean_mag"], .01),
@@ -122,7 +122,6 @@ def infer_stellar_age(df):
 ##----------------------------------------------------------------------------
 
 if __name__ == "__main__":
-    print("testing 1")
 
     #  Load the data file.
     df = pd.read_csv("data/for_ruth_masses.csv")
