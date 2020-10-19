@@ -1,29 +1,29 @@
 #!/usr/bin/python3
 
+import os
+import sys
+import numpy as np
+import pandas as pd
+import h5py
+import tqdm
+import emcee
+import corner
+import h5py as h5
+
+import stardate as sd
+import stardate2 as sd2
+from stardate import load_samples, read_samples
+from isochrones import get_ichrone
+mist = get_ichrone('mist')
+tracks = get_ichrone('mist', tracks=True)
+
+from multiprocessing import Pool
+
 print("TEST")
 
-#import os
-#import sys
-#import numpy as np
-#import pandas as pd
-#import h5py
-#import tqdm
-#import emcee
-#import corner
-#import h5py as h5
-
-#import stardate as sd
-#import stardate2 as sd2
-#from stardate import load_samples, read_samples
-#from isochrones import get_ichrone
-#mist = get_ichrone('mist')
-#tracks = get_ichrone('mist', tracks=True)
-
-#from multiprocessing import Pool
-
-## Necessary to add cwd to path when script run
-## by SLURM (since it executes a copy)
-#sys.path.append(os.getcwd())
+# Necessary to add cwd to path when script run
+# by SLURM (since it executes a copy)
+sys.path.append(os.getcwd())
 
 #def infer_stellar_age(df):
 #    print("testing 2")
